@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { realtorDirectory } from "@/lib/realtors";
+import { lenderDirectory } from "@/lib/lenders";
 
 export default function AgentHome() {
-  const { agent } = useParams();
-  const realtor = realtorDirectory[agent as string];
+  const { lender, agent } = useParams();
+  const realtorInfo = realtorDirectory[agent as string];
+  const lenderInfo = lenderDirectory[lender as string];
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -48,41 +50,43 @@ export default function AgentHome() {
       <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-blue-800">
         Home Buyer Guidebooks
       </h1>
-      {realtor && (
+
+      {realtorInfo && lenderInfo && (
         <p className="text-center text-gray-700 text-sm sm:text-base mb-6">
-          📘 Presented By <strong>{realtor.fullName}</strong> &{" "}
-          <strong>Brandon Doza</strong>
+          📘 Presented By <strong>{realtorInfo.fullName}</strong> &{" "}
+          <strong>{lenderInfo.fullName}</strong>
         </p>
       )}
 
-<div className="mt-5 flex justify-center gap-6 flex-wrap px-4 mb-5">
-  {realtor && (
-    <a
-      href={realtor.contactUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
-    >
-      Contact {realtor.firstName}
-    </a>
-  )}
+      <div className="mt-5 flex justify-center gap-6 flex-wrap px-4 mb-5">
+        {realtorInfo && (
+          <a
+            href={realtorInfo.contactUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+          >
+            🤝 Contact {realtorInfo.firstName}
+          </a>
+        )}
 
-  <a
-    href="https://www.homeloanswithbrandon.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-  >
-    Contact Brandon
-  </a>
-</div>
-
+        {lenderInfo && (
+          <a
+            href={lenderInfo.contactUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          >
+            📞 Contact {lenderInfo.firstName}
+          </a>
+        )}
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {guides.map((guide) => {
           const linkHref = isMobile
-            ? `/pdfs/${agent}/${guide.slug}.pdf` // Direct PDF on mobile
-            : `/${agent}/${guide.slug}`;         // Viewer page on desktop
+            ? `/pdfs/${lender}/${agent}/${guide.slug}.pdf`
+            : `/${lender}/${agent}/${guide.slug}`;
 
           return (
             <a

@@ -3,11 +3,13 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { realtorDirectory } from '@/lib/realtors'
+import { lenderDirectory } from '@/lib/lenders'
 
 export default function CoBrandedGuidePage() {
-  const { agent, slug } = useParams()
-  const realtor = realtorDirectory[agent as string]
-  const pdfUrl = `/pdfs/${agent}/${slug}.pdf`
+  const { lender, agent, slug } = useParams()
+  const lenderInfo = lenderDirectory[lender as string]
+  const realtorInfo = realtorDirectory[agent as string]
+  const pdfUrl = `/pdfs/${lender}/${agent}/${slug}.pdf`
 
   const [isMobile, setIsMobile] = useState(false)
 
@@ -18,12 +20,12 @@ export default function CoBrandedGuidePage() {
       setIsMobile(isIOS || isSmallScreen)
     }
 
-    detectMobile() // Initial check
+    detectMobile()
     window.addEventListener('resize', detectMobile)
     return () => window.removeEventListener('resize', detectMobile)
   }, [])
 
-  if (!realtor) {
+  if (!realtorInfo) {
     return (
       <main className="min-h-screen flex items-center justify-center text-center px-4">
         <div>
@@ -41,7 +43,7 @@ export default function CoBrandedGuidePage() {
           {slug?.toString().replace('-', ' ')}
         </h1>
         <p className="text-base sm:text-lg text-gray-700">
-          Presented by {realtor.fullName} & Brandon Doza
+          Presented by {realtorInfo.fullName} & Brandon Doza
         </p>
 
         <div className="mt-4 flex justify-center gap-4 flex-wrap">
@@ -53,18 +55,18 @@ export default function CoBrandedGuidePage() {
             📞 Contact Brandon
           </a>
           <a
-            href={realtor.contactUrl}
+            href={realtorInfo.contactUrl}
             target="_blank"
             className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-green-600 text-white rounded hover:bg-green-700 transition"
           >
-            🤝 Contact {realtor.firstName}
+            🤝 Contact {realtorInfo.firstName}
           </a>
         </div>
       </div>
 
       <div className="mb-6 text-center">
         <a
-          href={`/${agent}`}
+          href={`/${lender}/${agent}`}
           className="inline-block px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition"
         >
           ⬅️ Back to All Guides
