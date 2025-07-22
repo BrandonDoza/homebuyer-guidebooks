@@ -1,26 +1,27 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { realtorDirectory } from '@/lib/realtors'
 
 export default function CoBrandedGuidePage() {
-    const params = useParams()
-    const agent = Array.isArray(params?.agent) ? params.agent[0] : params?.agent
-    const slug = Array.isArray(params?.slug) ? params.slug[0] : params?.slug
-
-  if (!agent || !slug) {
-    return (
-      <main className="min-h-screen flex items-center justify-center text-center px-4">
-        <div>
-          <h1 className="text-2xl font-bold mb-2">❌ Invalid Link</h1>
-          <p className="text-gray-600">Missing guide or agent information in the URL.</p>
-        </div>
-      </main>
-    )
-  }
-
-  const realtor = realtorDirectory[agent]
+  const { agent, slug } = useParams()
+  const realtor = realtorDirectory[agent as string]
   const pdfUrl = `/pdfs/${agent}/${slug}.pdf`
+
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const detectMobile = () => {
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+      const isSmallScreen = window.innerWidth <= 1024
+      setIsMobile(isIOS || isSmallScreen)
+    }
+
+    detectMobile() // Initial check
+    window.addEventListener('resize', detectMobile)
+    return () => window.removeEventListener('resize', detectMobile)
+  }, [])
 
   if (!realtor) {
     return (
@@ -37,24 +38,24 @@ export default function CoBrandedGuidePage() {
     <main className="min-h-screen bg-gray-50 px-4 py-8 text-blue-800">
       <div className="text-center mb-6">
         <h1 className="text-2xl font-semibold capitalize mb-1">
-          {slug.replace(/-/g, ' ')}
+          {slug?.toString().replace('-', ' ')}
         </h1>
-        <p className="text-sm sm:text-base text-gray-700">
-          📘 Presented by <strong>{realtor.fullName}</strong> & <strong>Brandon Doza</strong>
+        <p className="text-base sm:text-lg text-gray-700">
+          Presented by {realtor.fullName} & Brandon Doza
         </p>
 
         <div className="mt-4 flex justify-center gap-4 flex-wrap">
           <a
             href="https://www.homeloanswithbrandon.com"
             target="_blank"
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-blue-600 text-white rounded hover:bg-blue-700 transition"
           >
             📞 Contact Brandon
           </a>
           <a
             href={realtor.contactUrl}
             target="_blank"
-            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+            className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-green-600 text-white rounded hover:bg-green-700 transition"
           >
             🤝 Contact {realtor.firstName}
           </a>
@@ -70,9 +71,26 @@ export default function CoBrandedGuidePage() {
         </a>
       </div>
 
-      <div className="w-full h-[90vh]">
-        <iframe src={pdfUrl} className="w-full h-full border rounded" />
-      </div>
+      {isMobile ? (
+        <div className="text-center">
+          <a
+            href={pdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          >
+            📄 View PDF
+          </a>
+        </div>
+      ) : (
+        <div className="w-full h-[90vh]">
+          <iframe
+            src={pdfUrl}
+            className="w-full h-full border rounded"
+            title="PDF Viewer"
+          />
+        </div>
+      )}
     </main>
   )
 }
