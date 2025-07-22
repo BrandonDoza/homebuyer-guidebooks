@@ -32,7 +32,7 @@ export default function Home() {
         {guides.map((guide) => (
           <a
             key={guide.title}
-            href={`/pdfs/brandondoza/${guide.slug}.pdf`}
+            href={`/pdfs/brandondozas/${guide.slug}.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="border rounded-lg overflow-hidden hover:shadow-lg transition"
