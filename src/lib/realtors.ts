@@ -22,4 +22,10 @@ export const realtorDirectory: Record<
     lastName: "Strickland",
     contactUrl: "https://sgcolorado.com/",
   },
+  jennacodespotiwright: {
+  fullName: "Jenna Codespoti Wright",
+  firstName: "Jenna",
+  lastName: "Codespoti Wright",
+  contactUrl: "https://jennacodespotiwright.westandmainhomes.com/",
+},
 };
