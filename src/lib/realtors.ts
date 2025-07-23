@@ -16,4 +16,10 @@ export const realtorDirectory: Record<
     lastName: "Dube",
     contactUrl: "https://ryan.yourmountainhomesearch.com/",
   },
+  ashleystrickland: {
+    fullName: "Ashley Strickland",
+    firstName: "Ashley",
+    lastName: "Strickland",
+    contactUrl: "https://sgcolorado.com/",
+  },
 };
