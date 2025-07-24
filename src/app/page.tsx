@@ -24,9 +24,32 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-10 text-blue-800">
-        HomeBuyerGuidebooks.com
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-2 text-blue-800">
+        Home Buyer Guidebooks
       </h1>
+
+      <p className="text-center text-gray-600 text-sm sm:text-base mb-2">
+        Your most trusted resource for educating and empowering home buyers.
+      </p>
+
+      <p className="text-center text-gray-700 text-xs sm:text-sm mb-4 sm:mb-6">
+        📘 Presented By Brandon Doza
+      </p>
+
+      <p className="text-center text-gray-700 text-xs sm:text-sm mb-4 sm:mb-6">
+        MPA Home Loans
+      </p>
+
+      <div className="mt-6 sm:mt-10 mb-6 sm:mb-10 text-center">
+        <a
+          href="https://www.homeloanswithbrandon.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        >
+          📞 Contact Brandon
+        </a>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {guides.map((guide) => (
@@ -47,16 +70,6 @@ export default function Home() {
             </div>
           </a>
         ))}
-      </div>
-      <div className="mt-10 text-center">
-        <a
-          href="https://www.homeloanswithbrandon.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-        >
-          📞 Contact Brandon
-        </a>
       </div>
     </main>
   );
