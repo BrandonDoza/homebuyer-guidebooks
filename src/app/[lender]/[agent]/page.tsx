@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -50,6 +50,10 @@ export default function AgentHome() {
       <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-blue-800">
         Home Buyer Guidebooks
       </h1>
+
+      <p className="text-center text-gray-600 text-sm sm:text-base mb-2">
+        Your most trusted resource for educating and empowering home buyers.
+      </p>
 
       {realtorInfo && lenderInfo && (
         <p className="text-center text-gray-700 text-sm sm:text-base mb-6">

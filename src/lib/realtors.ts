@@ -23,9 +23,15 @@ export const realtorDirectory: Record<
     contactUrl: "https://sgcolorado.com/",
   },
   jennacodespotiwright: {
-  fullName: "Jenna Codespoti Wright",
-  firstName: "Jenna",
-  lastName: "Codespoti Wright",
-  contactUrl: "https://jennacodespotiwright.westandmainhomes.com/",
-},
+    fullName: "Jenna Codespoti Wright",
+    firstName: "Jenna",
+    lastName: "Codespoti Wright",
+    contactUrl: "https://jennacodespotiwright.westandmainhomes.com/",
+  },
+  chrismckeever: {
+    fullName: "Chris McKeever",
+    firstName: "Chris",
+    lastName: "McKeever",
+    contactUrl: "https://chrismckeever.summitcountyrealestate.com/",
+  },
 };
