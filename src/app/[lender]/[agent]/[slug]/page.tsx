@@ -48,18 +48,18 @@ export default function CoBrandedGuidePage() {
 
         <div className="mt-4 flex justify-center gap-4 flex-wrap">
           <a
-            href="https://www.homeloanswithbrandon.com"
-            target="_blank"
-            className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-          >
-            📞 Contact Brandon
-          </a>
-          <a
             href={realtorInfo.contactUrl}
             target="_blank"
             className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-green-600 text-white rounded hover:bg-green-700 transition"
           >
-            🤝 Contact {realtorInfo.firstName}
+            🏠 Contact {realtorInfo.firstName}
+          </a>
+          <a
+            href="https://www.homeloanswithbrandon.com"
+            target="_blank"
+            className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          >
+            💰 Contact Brandon
           </a>
         </div>
       </div>

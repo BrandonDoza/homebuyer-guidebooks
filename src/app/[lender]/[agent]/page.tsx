@@ -46,18 +46,19 @@ export default function AgentHome() {
   ];
 
   return (
-    <main className="min-h-screen bg-white px-4 py-8">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-blue-800">
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white px-4 py-8">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent">
         Home Buyer Guidebooks
       </h1>
 
       <p className="text-center text-gray-600 text-sm sm:text-base mb-2">
-        Your most trusted resource for educating and empowering home buyers.
+        Your most trusted resource 🤝 for navigating the homebuying journey with
+        confidence.
       </p>
 
       {realtorInfo && lenderInfo && (
         <p className="text-center text-gray-700 text-sm sm:text-base mb-6">
-          📘 Presented By <strong>{realtorInfo.fullName}</strong> &{" "}
+          📘 Presented by <strong>{realtorInfo.fullName}</strong> &{" "}
           <strong>{lenderInfo.fullName}</strong>
         </p>
       )}
@@ -70,7 +71,7 @@ export default function AgentHome() {
             rel="noopener noreferrer"
             className="inline-block px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
           >
-            🤝 Contact {realtorInfo.firstName}
+            🏠 Contact {realtorInfo.firstName}
           </a>
         )}
 
@@ -81,7 +82,7 @@ export default function AgentHome() {
             rel="noopener noreferrer"
             className="inline-block px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           >
-            📞 Contact {lenderInfo.firstName}
+            💰 Contact {lenderInfo.firstName}
           </a>
         )}
       </div>
