@@ -34,4 +34,10 @@ export const realtorDirectory: Record<
     lastName: "McKeever",
     contactUrl: "https://chrismckeever.summitcountyrealestate.com/",
   },
+  emilylawless: {
+    fullName: "Emily Lawless",
+    firstName: "Emily",
+    lastName: "Lawless",
+    contactUrl: "https://emilysummitrealtor.com/",
+  },
 };

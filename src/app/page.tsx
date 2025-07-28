@@ -23,16 +23,17 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-white px-4 py-8">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-2 text-blue-800">
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white px-4 py-8">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent">
         Home Buyer Guidebooks
       </h1>
 
       <p className="text-center text-gray-600 text-sm sm:text-base mb-2">
-        Your most trusted resource for educating and empowering home buyers.
+        Your most trusted resource 🤝 for navigating the homebuying journey with
+        confidence.
       </p>
 
-      <p className="text-center text-gray-700 text-xs sm:text-sm mb-4 sm:mb-6">
+      <p className="text-center text-gray-700 text-sm sm:text-base mb-6">
         📘 Presented By Brandon Doza
       </p>
 
