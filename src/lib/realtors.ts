@@ -40,4 +40,10 @@ export const realtorDirectory: Record<
     lastName: "Lawless",
     contactUrl: "https://emilysummitrealtor.com/",
   },
+  franqueamundsen: {
+  fullName: "Franque Amundsen",
+  firstName: "Franque",
+  lastName: "Amundsen",
+  contactUrl: "https://franqueamundsen.summitcountyrealestate.com/",
+},
 };
