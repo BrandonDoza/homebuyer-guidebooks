@@ -46,4 +46,10 @@ export const realtorDirectory: Record<
   lastName: "Amundsen",
   contactUrl: "https://franqueamundsen.summitcountyrealestate.com/",
 },
+justinwalker: {
+  fullName: "Justin Walker",
+  firstName: "Justin",
+  lastName: "Walker",
+  contactUrl: "https://www.soldbyjustinwalker.com/",
+},
 };
