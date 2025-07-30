@@ -18,7 +18,7 @@ export const metadata = {
   description:
     'Free downloadable home buyer guides co-branded by your trusted mortgage lender and real estate agent. Start your journey to homeownership with clarity.',
   icons: {
-    icon: '/favicon.png', // Or '/favicon.ico' if you used .ico
+    icon: '/favicon.png', 
   },
   openGraph: {
     title: 'Home Buyer Guidebooks',
