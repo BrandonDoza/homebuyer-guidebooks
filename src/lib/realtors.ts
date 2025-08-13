@@ -52,4 +52,10 @@ justinwalker: {
   lastName: "Walker",
   contactUrl: "https://www.soldbyjustinwalker.com/",
 },
+marcogarcia: {
+  fullName: "Marco Garcia",
+  firstName: "Marco",
+  lastName: "Garcia",
+  contactUrl: "https://marcogarcia.denverhomesearchnow.com/agents/1627266/Marco+Garcia",
+},
 };
