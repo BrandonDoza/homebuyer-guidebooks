@@ -58,4 +58,10 @@ marcogarcia: {
   lastName: "Garcia",
   contactUrl: "https://marcogarcia.denverhomesearchnow.com/agents/1627266/Marco+Garcia",
 },
+gregopgenorth: {
+  fullName: "Greg Opgenorth",
+  firstName: "Greg",
+  lastName: "Opgenorth",
+  contactUrl: "https://onereal.com/greg-opgenorth",
+},
 };
