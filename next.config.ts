@@ -3,8 +3,6 @@ import type { NextConfig } from "next";
 const SLUGS = [
   "maggiefast",
   "ryandube",
-  "ashleystrickland",
-  "jennacodespotiwright",
   "chrismckeever",
   "emilylawless",
   "franqueamundsen",
